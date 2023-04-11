@@ -2,14 +2,17 @@ import React, { useState } from "react";
 import Grid from "@mui/material/Grid";
 import CssBaseline from "@mui/material/CssBaseline";
 import Counter from "./Counter";
+import TextField from "@mui/material/TextField";
 
 // App component
 export default function App() {
   const [count, setCount] = useState(7);
   const [name, setName] = useState("Counter App");
 
-  console.log(count);
-  console.log(name);
+  const handleChangeName = (event) => {
+    console.log(event);
+    setName(event.target.value);
+  };
 
   const increaseCount = () => {
     setCount(count + 1);
@@ -35,8 +38,6 @@ export default function App() {
     }
   };
 
-  console.log(count);
-
   return (
     <>
       <CssBaseline />
@@ -46,20 +47,22 @@ export default function App() {
         justifyContent="center"
         alignItems="center"
       >
-        {Array(3)
-          .fill(0)
-          .map((c, index) => {
-            return (
-              <Counter
-                key={index}
-                name={name}
-                count={count}
-                increaseCount={increaseCount}
-                descreaseCount={decreaseCount}
-                resetToDefault={() => resetToDefaultWithPar(10)}
-              />
-            );
-          })}
+        <Grid item>
+          <Counter
+            name={name}
+            count={count}
+            increaseCount={increaseCount}
+            descreaseCount={decreaseCount}
+            resetToDefault={() => resetToDefaultWithPar(7)}
+          />
+          <TextField
+            sx={{ mt: 2 }}
+            fullWidth
+            label="Type a new name here"
+            variant="outlined"
+            onChange={handleChangeName}
+          />
+        </Grid>
       </Grid>
     </>
   );
