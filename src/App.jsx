@@ -46,29 +46,20 @@ export default function App() {
         justifyContent="center"
         alignItems="center"
       >
-        <Counter
-          name={name}
-          count={count}
-          increaseCount={increaseCount}
-          descreaseCount={decreaseCount}
-          resetToDefault={resetToDefault}
-        />
-
-        <Counter
-          name={name}
-          count={count}
-          increaseCount={increaseCount}
-          descreaseCount={decreaseCount}
-          resetToDefault={resetToDefault}
-        />
-
-        <Counter
-          name={name}
-          count={count}
-          increaseCount={increaseCount}
-          descreaseCount={decreaseCount}
-          resetToDefault={resetToDefault}
-        />
+        {Array(3)
+          .fill(0)
+          .map((c, index) => {
+            return (
+              <Counter
+                key={index}
+                name={name}
+                count={count}
+                increaseCount={increaseCount}
+                descreaseCount={decreaseCount}
+                resetToDefault={() => resetToDefaultWithPar(10)}
+              />
+            );
+          })}
       </Grid>
     </>
   );
