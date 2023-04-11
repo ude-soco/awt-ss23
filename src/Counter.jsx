@@ -46,7 +46,7 @@ const Counter = ({
           <Button
             variant="contained"
             color="inherit"
-            onClick={() => resetToDefault(7)}
+            onClick={resetToDefault}
           >
             Reset
           </Button>

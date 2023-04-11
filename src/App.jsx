@@ -51,7 +51,7 @@ export default function App() {
           count={count}
           increaseCount={increaseCount}
           descreaseCount={decreaseCount}
-          resetToDefault={resetToDefault}
+          resetToDefault={() => resetToDefaultWithPar(10)}
         />
 
         <Counter
@@ -59,7 +59,7 @@ export default function App() {
           count={count}
           increaseCount={increaseCount}
           descreaseCount={decreaseCount}
-          resetToDefault={resetToDefault}
+          resetToDefault={() => resetToDefaultWithPar(10)}
         />
 
         <Counter
@@ -67,7 +67,7 @@ export default function App() {
           count={count}
           increaseCount={increaseCount}
           descreaseCount={decreaseCount}
-          resetToDefault={resetToDefault}
+          resetToDefault={() => resetToDefaultWithPar(10)}
         />
       </Grid>
     </>
