@@ -24,6 +24,10 @@ export default function App() {
     setCount(7);
   };
 
+  const resetToDefaultWithPar = (value) => {
+    setCount(value);
+  };
+
   console.log(count);
 
   return (
@@ -74,7 +78,7 @@ export default function App() {
               <Button
                 variant="contained"
                 color="inherit"
-                onClick={resetToDefault}
+                onClick={() => resetToDefaultWithPar(7)}
               >
                 Reset
               </Button>
