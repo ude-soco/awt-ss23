@@ -1,8 +1,7 @@
 import React, { useState } from "react";
-import Button from "@mui/material/Button";
 import Grid from "@mui/material/Grid";
 import CssBaseline from "@mui/material/CssBaseline";
-import Typography from "@mui/material/Typography";
+import Counter from "./Counter";
 
 // App component
 export default function App() {
@@ -47,55 +46,29 @@ export default function App() {
         justifyContent="center"
         alignItems="center"
       >
-        <Grid
-          container
-          direction="column"
-          justifyContent="center"
-          alignItems="center"
-          sx={{
-            bgcolor: "#FFC53A",
-            maxWidth: 380,
-            minWidth: 380,
-            borderRadius: 3,
-            padding: 7
-          }}
-        >
-          <Typography variant="h4" align="center" sx={{ mb: 6 }}>
-            {name}
-          </Typography>
+        <Counter
+          name={name}
+          count={count}
+          increaseCount={increaseCount}
+          descreaseCount={decreaseCount}
+          resetToDefault={resetToDefault}
+        />
 
-          <Typography variant="h1" sx={{ mb: 6 }}>
-            {count}
-          </Typography>
-          <Grid container justifyContent="center" spacing={1}>
-            <Grid item>
-              <Button
-                variant="contained"
-                onClick={(event) => increaseCountByTen(event)}
-              >
-                Increase
-              </Button>
-            </Grid>
-            <Grid item>
-              <Button
-                variant="contained"
-                color="secondary"
-                onClick={decreaseCount}
-              >
-                Decrease
-              </Button>
-            </Grid>
-            <Grid item>
-              <Button
-                variant="contained"
-                color="inherit"
-                onClick={() => resetToDefaultWithPar(7)}
-              >
-                Reset
-              </Button>
-            </Grid>
-          </Grid>
-        </Grid>
+        <Counter
+          name={name}
+          count={count}
+          increaseCount={increaseCount}
+          descreaseCount={decreaseCount}
+          resetToDefault={resetToDefault}
+        />
+
+        <Counter
+          name={name}
+          count={count}
+          increaseCount={increaseCount}
+          descreaseCount={decreaseCount}
+          resetToDefault={resetToDefault}
+        />
       </Grid>
     </>
   );
