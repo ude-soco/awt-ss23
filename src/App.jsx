@@ -28,6 +28,14 @@ export default function App() {
     setCount(value);
   };
 
+  const increaseCountByTen = (event) => {
+    if (event.shiftKey) {
+      setCount(count + 10);
+    } else {
+      increaseCount();
+    }
+  };
+
   console.log(count);
 
   return (
@@ -61,7 +69,10 @@ export default function App() {
           </Typography>
           <Grid container justifyContent="center" spacing={1}>
             <Grid item>
-              <Button variant="contained" onClick={increaseCount}>
+              <Button
+                variant="contained"
+                onClick={(event) => increaseCountByTen(event)}
+              >
                 Increase
               </Button>
             </Grid>
