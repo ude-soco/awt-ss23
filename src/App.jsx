@@ -16,8 +16,12 @@ export default function App() {
     setCount(count + 1);
   };
 
-  const changeName = () => {
-    setName("Counter Application");
+  const decreaseCount = () => {
+    setCount(count - 1);
+  };
+
+  const resetToDefault = () => {
+    setCount(7);
   };
 
   console.log(count);
@@ -41,7 +45,7 @@ export default function App() {
             maxWidth: 380,
             minWidth: 380,
             borderRadius: 3,
-            padding: 7,
+            padding: 7
           }}
         >
           <Typography variant="h4" align="center" sx={{ mb: 6 }}>
@@ -61,9 +65,18 @@ export default function App() {
               <Button
                 variant="contained"
                 color="secondary"
-                onClick={changeName}
+                onClick={decreaseCount}
               >
-                Change name
+                Decrease
+              </Button>
+            </Grid>
+            <Grid item>
+              <Button
+                variant="contained"
+                color="inherit"
+                onClick={resetToDefault}
+              >
+                Reset
               </Button>
             </Grid>
           </Grid>
