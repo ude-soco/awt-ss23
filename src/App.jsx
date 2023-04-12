@@ -20,8 +20,6 @@ export default function App() {
     setName("Counter Application");
   };
 
-  console.log(count);
-
   return (
     <>
       <CssBaseline />
@@ -51,6 +49,7 @@ export default function App() {
           <Typography variant="h1" sx={{ mb: 6 }}>
             {count}
           </Typography>
+
           <Grid container justifyContent="center" spacing={1}>
             <Grid item>
               <Button variant="contained" onClick={increaseCount}>
