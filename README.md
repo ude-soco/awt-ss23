@@ -20,7 +20,15 @@
 
 #### Step 3: Install dependencies
 
-- Open the terminal in your code editor and run the following command to install all the dependencies
+- Switch between branches to see the different versions of the project. Type the following command in the terminal to switch to a branch
+
+    ```bash
+    git checkout <branch-name>
+    ```
+
+    Or use the GitHub Desktop to switch between branches
+    
+- Open the directory using your code editor and open the built-in terminal. Type the following command to install all the dependencies
 
     ```bash
     npm install
@@ -32,10 +40,3 @@
     ```
 - Open [http://localhost:5173](http://localhost:5173) with your browser to see the result.
 
-- Switch between branches to see the different versions of the project. Type the following command in the terminal to switch to a branch
-
-    ```bash
-    git checkout <branch-name>
-    ```
-
-    Or use the GitHub Desktop to switch between branches
