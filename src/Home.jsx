@@ -1,28 +1,35 @@
-import { Typography, Grid, Button } from "@mui/material";
 import React, { useState } from "react";
+import { Typography, Grid, Button } from "@mui/material";
+import { useDispatch, useSelector } from "react-redux";
+import { setDecrease, setIncrease, setReset } from "./redux/counterReducer";
 import Counter from "./Counter";
 
 // Home component
 export default function Home() {
-  const [count, setCount] = useState(7);
+  // const [count, setCount] = useState(7);
+  const count = useSelector((state) => state.counterReducer.count);
+  const dispatch = useDispatch();
+
   const [name, setName] = useState("Counter App");
   const [showCounter, setShowCounter] = useState(true);
 
   const handleChangeName = (event) => {
-    console.log(event);
     setName(event.target.value);
   };
 
   const increaseCount = () => {
-    setCount(count + 1);
+    // setCount(count + 1);
+    dispatch(setIncrease());
   };
 
   const decreaseCount = () => {
-    setCount(count - 1);
+    // setCount(count - 1);
+    dispatch(setDecrease());
   };
 
   const resetToDefault = () => {
-    setCount(7);
+    // setCount(7);
+    dispatch(setReset());
   };
 
   const handleShowCounter = () => {
