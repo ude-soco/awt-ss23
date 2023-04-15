@@ -1,69 +1,43 @@
-import React, { useState } from "react";
-import Grid from "@mui/material/Grid";
-import CssBaseline from "@mui/material/CssBaseline";
-import Counter from "./Counter";
-import TextField from "@mui/material/TextField";
+import React from "react";
+import { CssBaseline, Grid } from "@mui/material";
+import NavigationBar from "./NavigationBar";
+import Home from "./Home";
+import News from "./News";
+import NewsContent from "./NewsContent";
+import Team from "./Team";
+import TeamMember from "./TeamMember";
+import {
+  BrowserRouter as Router,
+  Navigate,
+  Route,
+  Routes
+} from "react-router-dom";
 
 // App component
 export default function App() {
-  const [count, setCount] = useState(7);
-  const [name, setName] = useState("Counter App");
-
-  const handleChangeName = (event) => {
-    console.log(event);
-    setName(event.target.value);
-  };
-
-  const increaseCount = () => {
-    setCount(count + 1);
-  };
-
-  const decreaseCount = () => {
-    setCount(count - 1);
-  };
-
-  const resetToDefault = () => {
-    setCount(7);
-  };
-
-  const resetToDefaultWithPar = (value) => {
-    setCount(value);
-  };
-
-  const increaseCountByTen = (event) => {
-    if (event.shiftKey) {
-      setCount(count + 10);
-    } else {
-      increaseCount();
-    }
-  };
-
   return (
     <>
       <CssBaseline />
-      <Grid
-        container
-        sx={{ p: 3, height: "100vh" }}
-        justifyContent="center"
-        alignItems="center"
-      >
-        <Grid item>
-          <Counter
-            name={name}
-            count={count}
-            increaseCount={increaseCount}
-            descreaseCount={decreaseCount}
-            resetToDefault={() => resetToDefaultWithPar(7)}
-          />
-          <TextField
-            sx={{ mt: 2 }}
-            fullWidth
-            label="Type a new name here"
-            variant="outlined"
-            onChange={handleChangeName}
-          />
+      <Router>
+        <NavigationBar />
+        <Grid container sx={{ p: 2.5 }}>
+          <Routes>
+            <Route index element={<Home />} />
+
+            <Route path="news">
+              <Route index element={<News />} />
+              <Route path=":id" element={<NewsContent />} />
+            </Route>
+
+            <Route path="team">
+              <Route index element={<Team />} />
+              <Route path=":id" element={<TeamMember />} />
+            </Route>
+
+            <Route path="*" element={<Navigate to={"/"} replace />} />
+          </Routes>
         </Grid>
-      </Grid>
+      </Router>
     </>
   );
 }
